@@ -54,3 +54,50 @@
   font-size: 0.75em;
   margin: 0.5em 0em 0em 0.5em;
 }
+
+/* weather card styling */
+
+.weather-card {
+  width: 9rem;
+  background-color: #0275d8;
+  color: white;
+  text-align: center;
+}
+
+/* uv index styling */
+
+.uv-favorable {
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+}
+
+.uv-moderate {
+  background-color: orange;
+  border-radius: 5px;
+  color: white;
+}
+
+.uv-severe {
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+}
+
+/* media queries for responsive design */
+
+@media only screen and (max-width: 992px) {
+  #search-city {
+    width: 100%;
+  }
+
+  #search-button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  #fiveDayForecastUl {
+    justify-content: center;
+  }
+}
