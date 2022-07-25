@@ -46,6 +46,18 @@
               </button>
             </div>
           </form>
+          <div id="search-error"></div>
+          <!-- List of previously searched cities that will be saved to local storage -->
+          <ul id="city-results" class="list-group mt-4"></ul>
+          <!-- clear storage button -->
+          <a id="clear-storage" href="#"></a>
+        </div>
+        <!-- right side content showing current weather and 5 day forecast on search -->
+        <div id="content-right" class="col-md-9 pt-4">
+          <!-- current weather displays on top -->
+          <div id="current-weather" class="border rounded"></div>
+          <!-- 5 day forecast displays below current weather -->
+          <div id="five-day-forecast" class="mt-5"></div>
         </div>
       </div>
     </div>
