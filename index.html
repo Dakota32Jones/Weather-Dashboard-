@@ -20,63 +20,95 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Weather Dashboard</title>
   </head>
+  <!-- styling for header  -->
   <body>
-    <!-- Jumbotron to display City name when searched -->
-    <div id="header" class="jumbotron jumbotron-fluid text-container">
-      <h1 id="header-text" class="display-2"></h1>
-      <div id="artis-credit"></div>
-    </div>
-
-    <!-- Main container to display webpage content -->
-    <div id="content" class="container">
-      <div class="row">
-        <!-- left side webpage content with the city search bar and append cities -->
-        <div id="content-left" class="col-md-3">
-          <form>
-            <label for="search-city">Search For a City:</label>
-            <div class="form-row">
-              <input
-                id="search-city"
-                class="form-control"
-                name="city"
-                placeholder="Search For a City"
-              />
-              <button id="search-button" class="btn btn-primary" type="submit">
-                <i class="fa-solid fa-magnifying-glass-location fa-shake"></i>
-              </button>
-            </div>
-          </form>
-          <div id="search-error"></div>
-          <!-- List of previously searched cities that will be saved to local storage -->
-          <ul id="city-results" class="list-group mt-4"></ul>
-          <!-- clear storage button -->
-          <a id="clear-storage" href="#"></a>
-        </div>
-        <!-- right side content showing current weather and 5 day forecast on search -->
-        <div id="content-right" class="col-md-9 pt-4">
-          <!-- current weather displays on top -->
-          <div id="current-weather" class="border rounded"></div>
-          <!-- 5 day forecast displays below current weather -->
-          <div id="five-day-forecast" class="mt-5"></div>
-        </div>
+    <header class="p-4 p-sm-5 mb-4 text-align-center">
+      <h1 class="text-center">Weather Dashboard</h1>
+  </header>
+<!-- main content for search input and buttons -->
+  <main class="m-5 text-align-center">
+      <div class="row m-0 d-block d-md-flex">
+          <section class="col-12 col-md-3">
+              <form id="search-form">
+                  <h2>Search for a City:</h2>
+                  <div id="error-container" class="error-msg"></div>
+                  <input type="text" id="city-search" placeholder="Enter a City Name" class="w-100 mb-2">
+                  <button type="submit" class="w-100 mb-3 btn btn-secondary">Search</button>
+              </form>
+              <div id="search-container"></div>
+              <button id="clear-btn" class="btn btn-danger w-100 mt-2 mb-4">Clear Search History</button>
+          </section>
+          <!-- current weather section with data -->
+          <section class="col-12 col-md-9">
+              <div id="current-weather" class="p-3 mb-2">
+                  <h2 id="current-heading">Current Weather</h2>
+                  <div class="row">
+                      <div class="data-container col-4" id="current-data">
+                          <div id="temp">Temp: </div>
+                          <div id="wind">Wind: </div>
+                          <div id="humid">Humidity: </div>
+                          <div id="uvi">UV Index: </div>
+                      </div>
+                      <div class="col-4" id="spacer"></div>
+                      <div id="current-icon" class="col-4"></div>
+                  </div>
+              </div>
+              <!-- 5 day forecast section with cards -->
+              <div id="forecast" class="p-3">
+                  <h2 class="d-block">5-Day Forecast</h2>
+                  <div class="row justify-content-around d-block d-xl-flex mr-0">
+                      <div id="card1" class="text-center d-none col m-2 p-0">
+                          <div class="card-body">
+                              <div id="card1-title" class="card-title"></div>
+                              <img src="" id="card0-icon" class="card-icon"></img>
+                              <div id="card0-temp"></div>
+                              <div id="card0-wind"></div>
+                              <div id="card0-humid"></div>
+                          </div>
+                      </div>
+                      <div id="card2" class="text-center d-none col m-2 p-0">
+                          <div class="card-body">
+                              <div id="card2-title" class="card-title"></div>
+                              <img src="" id="card1-icon" class="card-icon"></img>
+                              <div id="card1-temp"></div>
+                              <div id="card1-wind"></div>
+                              <div id="card1-humid"></div>
+                          </div>
+                      </div>
+                      <div id="card3" class="text-center d-none col m-2 p-0">
+                          <div class="card-body">
+                              <div id="card3-title" class="card-title"></div>
+                              <img src="" id="card2-icon" class="card-icon"></img>
+                              <div id="card2-temp"></div>
+                              <div id="card2-wind"></div>
+                              <div id="card2-humid"></div>
+                          </div>
+                      </div>
+                      <div id="card4" class="text-center d-none col m-2 p-0">
+                          <div class="card-body">
+                              <div id="card4-title" class="card-title"></div>
+                              <img src="" id="card3-icon" class="card-icon"></img>
+                              <div id="card3-temp"></div>
+                              <div id="card3-wind"></div>
+                              <div id="card3-humid"></div>
+                          </div>
+                      </div>
+                      <div id="card5" class="text-center d-none col m-2 p-0">
+                          <div class="card-body">
+                              <div id="card5-title" class="card-title"></div>
+                              <img src="" id="card4-icon" class="card-icon"></img>
+                              <div id="card4-temp"></div>
+                              <div id="card4-wind"></div>
+                              <div id="card4-humid"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
       </div>
-    </div>
-    <!-- added links to bootstrap and jquery -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-      integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
-      crossorigin="anonymous"
-    ></script>
+  </main>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>       
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
