@@ -20,7 +20,8 @@ Provide instructions and examples for use. Include screenshots as needed.
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-![Weather Dashboard ScreenShot](assets/images/screenshot.png)
+![Weather Dashboard ScreenShot](./assets/images/Weather-Dashboard.png)
+![Weather Data Dsiplayed on Page](./assets/images/Weather%20Data%20Displayed.png)
 
 ## Credits
 
