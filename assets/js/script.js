@@ -5,7 +5,7 @@ var searchFormEl = document.querySelector("#search-form");
 var searchInputEl = document.querySelector("#city-search");
 var currentHeadingEl = document.querySelector("#current-heading");
 var currentDataEl = document.querySelector("#current-data");
-var currentIconEl = document.querySelector("current-icon");
+var currentIconEl = document.querySelector("#current-icon");
 var clearButtonEl = document.querySelector("#clear-btn");
 var searchContainerEl = document.querySelector("#search-container");
 var errorContainerEl = document.querySelector("#error-container");
@@ -45,8 +45,9 @@ var getCoordinates = function (cityName) {
       return response.json();
     })
     .then(function (response) {
-      var lat = data[0].lat;
-      var lon = data[0].lon;
+      console.log(response[0]);
+      var lat = response[0].lat;
+      var lon = response[0].lon;
       getWeather(lat, lon);
     })
     //   if city is not valid
@@ -144,11 +145,12 @@ var displayForecast = function (data) {
       ".png";
     var icon = document.querySelector("#card" + j + "-icon");
     icon.src = iconLink;
-    var temp = querySelector("#card" + j + "-temp");
+    var temp = document.querySelector("#card" + j + "-temp");
     temp.innerHTML = "Temp:" + currentData.temp.day + " \u00B0F";
     var wind = document.querySelector("#card" + j + "-wind");
     wind.innerHTML = "Wind: " + currentData.wind_speed + " MPH";
-    var humid = document.querySelector("#card" + j + " -humid");
+    var humid = document.querySelector("#card" + j + "-humid");
+    console.log(humid);
     humid.innerHTML = "Humidity: " + currentData.humidity + " %";
   }
 };
